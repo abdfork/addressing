@@ -393,4 +393,9 @@ class Address implements ImmutableAddressInterface
 
         return $new;
     }
+
+    public function __set($property, $value)
+    {
+        $this->$property = $value;
+    }
 }

@@ -410,6 +410,7 @@ class AddressFormatRepository implements AddressFormatRepositoryInterface
             ],
             'ES' => [
                 'format' => "%givenName %familyName\n%organization\n%addressLine1\n%addressLine2\n%postalCode %locality %administrativeArea",
+                'locale' => 'es_ES',
                 'required_fields' => [
                     'addressLine1', 'locality', 'administrativeArea', 'postalCode',
                 ],
