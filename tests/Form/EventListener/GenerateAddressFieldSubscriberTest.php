@@ -19,7 +19,7 @@ use Symfony\Component\Form\Forms;
 /**
  * @coversDefaultClass \CommerceGuys\Addressing\Form\EventListener\GenerateAddressFieldsSubscriber
  */
-class GenerateAddressFieldsSubscriberTest extends \PHPUnit_Framework_TestCase
+class GenerateAddressFieldSubscriberTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * The address format repository.
@@ -43,7 +43,7 @@ class GenerateAddressFieldsSubscriberTest extends \PHPUnit_Framework_TestCase
     protected $subdivisionRepository;
 
     /**
-     * The form factory
+     * The form factory.
      *
      * @var FormFactoryInterface
      */
@@ -108,7 +108,7 @@ class GenerateAddressFieldsSubscriberTest extends \PHPUnit_Framework_TestCase
     public function testOnPreSubmit()
     {
         $formData = array(
-            'countryCode' => 'ES'
+            'countryCode' => 'ES',
         );
 
         $form = $this->formFactory->create(AddressType::class, null, array(

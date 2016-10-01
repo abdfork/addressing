@@ -1,4 +1,5 @@
 <?php
+
 namespace CommerceGuys\Addressing\Form\Type;
 
 use CommerceGuys\Addressing\AddressFormat\AddressFormatRepository;
@@ -13,12 +14,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class AddressType
- * @package CommerceGuys\Addressing\Form\Type
+ * Class AddressType.
  */
 class AddressType extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('countryCode', ChoiceType::class, [
