@@ -29,7 +29,7 @@ class AddressTypeTest extends \PHPUnit_Framework_TestCase
             'countryCode' => 'ES',
             'administrativeArea' => 'Madrid',
             'locality' => 'Madrid',
-            'givenName' => 'Test'
+            'givenName' => 'Test',
         );
 
         $address = new Address($formData['countryCode']);
@@ -42,7 +42,6 @@ class AddressTypeTest extends \PHPUnit_Framework_TestCase
         $form->get('administrativeArea')->submit('Madrid');
         $form->get('locality')->submit('Madrid');
         $form->get('givenName')->submit('Test');
-
 
         $this->assertTrue($form->isSynchronized());
         $this->assertEquals($address, $form->getData());

@@ -4,13 +4,12 @@ namespace Tests\Translator;
 
 use CommerceGuys\Addressing\Translator\labelTranslator;
 
-
 /**
  * @coversDefaultClass \CommerceGuys\Addressing\Translator\labelTranslator
  */
 class labelTranslatorTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var  labelTranslator $translator */
+    /** @var labelTranslator $translator */
     protected $translator;
 
     /** @var string $locale */
@@ -30,7 +29,7 @@ class labelTranslatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        if(class_exists('\Symfony\Component\Translation\Translator')) {
+        if (class_exists('\Symfony\Component\Translation\Translator')) {
             $this->assertInstanceOf('\Symfony\Component\Translation\Translator', $this->getObjectAttribute($this->translator, 'translator'));
         }
     }
@@ -40,10 +39,10 @@ class labelTranslatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testTranslate()
     {
-        if(class_exists('\Symfony\Component\Translation\Translator')) {
-            $this->assertEquals($this->translator->translate('city'),'Ciudad');
+        if (class_exists('\Symfony\Component\Translation\Translator')) {
+            $this->assertEquals($this->translator->translate('city'), 'Ciudad');
         } else {
-            $this->assertEquals($this->translator->translate('city'),'city');
+            $this->assertEquals($this->translator->translate('city'), 'city');
         }
     }
 }

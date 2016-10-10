@@ -7,11 +7,9 @@ use Symfony\Component\Form\FormEvent;
 
 /**
  * Interface EventSubscriber knows himself what events he is interested in.
- *
  */
-interface GenerateAddressFieldsSusbscriberInterface
+interface GenerateAddressFieldsSubscriberInterface
 {
-
     public function buildForm($form, $countryCode, $administrativeArea, $locality);
 
     public function getFormFields(AddressFormat $addressFormat, $subdivisions);
@@ -21,5 +19,4 @@ interface GenerateAddressFieldsSusbscriberInterface
     public function preSubmit(FormEvent $event);
 
     public function getFieldLabels($addressFormat);
-
 }

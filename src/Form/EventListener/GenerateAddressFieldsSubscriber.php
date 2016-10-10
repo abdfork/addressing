@@ -20,10 +20,8 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormInterface;
 
-
 /**
- * Class GenerateAddressFieldsSubscriber
- * @package CommerceGuys\Addressing\Form\EventListener
+ * Class GenerateAddressFieldsSubscriber.
  */
 class GenerateAddressFieldsSubscriber implements EventSubscriberInterface
 {
@@ -89,17 +87,17 @@ class GenerateAddressFieldsSubscriber implements EventSubscriberInterface
     /**
      * Builds the address form for the provided country code.
      *
-     * @param FormInterface $form
-     * @param string $countryCode The country code.
-     * @param string $administrativeArea The administrative area.
-     * @param string $locality The locality.
+     * @param FormInterface            $form
+     * @param string                   $countryCode        The country code
+     * @param string                   $administrativeArea The administrative area
+     * @param string                   $locality           The locality
      * @param labelTranslatorInterface $translator
      */
     protected function buildForm(FormInterface $form, $countryCode, $administrativeArea, $locality, labelTranslatorInterface $translator = null)
     {
         $addressFormat = $this->addressFormatRepository->get($countryCode);
 
-        if(empty($translator)) {
+        if (empty($translator)) {
             $translator = new labelTranslator($addressFormat->getLocale());
         }
 
@@ -123,11 +121,11 @@ class GenerateAddressFieldsSubscriber implements EventSubscriberInterface
     /**
      * Gets a list of form fields for the provided address format.
      *
-     * @param AddressFormat $addressFormat
-     * @param array $subdivisions An array of needed subdivisions.
-     *
+     * @param AddressFormat            $addressFormat
+     * @param array                    $subdivisions  An array of needed subdivisions
      * @param labelTranslatorInterface $translator
-     * @return array An array in the $field => $formOptions format.
+     *
+     * @return array An array in the $field => $formOptions format
      */
     protected function getFormFields(AddressFormat $addressFormat, $subdivisions, labelTranslatorInterface $translator)
     {
@@ -152,16 +150,17 @@ class GenerateAddressFieldsSubscriber implements EventSubscriberInterface
                 $fields[$field]['choices'] = $children;
             }
         }
+
         return $fields;
     }
 
     /**
      * Gets the labels for the provided address format's fields.
      *
-     * @param AddressFormat $addressFormat
-     *
+     * @param AddressFormat            $addressFormat
      * @param labelTranslatorInterface $translator
-     * @return array An array of labels keyed by field constants.
+     *
+     * @return array An array of labels keyed by field constants
      */
     protected function getFieldLabels($addressFormat, labelTranslatorInterface $translator)
     {
@@ -231,6 +230,7 @@ class GenerateAddressFieldsSubscriber implements EventSubscriberInterface
             AddressField::SORTING_CODE => $translator->translate(AddressField::SORTING_CODE),
             AddressField::POSTAL_CODE => $translator->translate($postalCodeLabel),
         ];
+
         return $labels;
     }
 }
